@@ -101,7 +101,7 @@ chrome.webRequest.onHeadersReceived.addListener(
       saveTabData(details.tabId, data).then(() => runDetection(details.tabId));
     });
 
-    return {};  // Return type fix for BlockingResponse
+    return undefined; // Return undefined for non-blocking in MV3
   },
   { urls: ['<all_urls>'], types: ['main_frame', 'sub_frame', 'xmlhttprequest', 'script'] },
   ['responseHeaders']
